@@ -1,0 +1,133 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 40px 0;
+}
+
+.carousel:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 4px;
+}
+
+.carousel .carousel-slides {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel .carousel-slides-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 0.5s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel .carousel-slides-list {
+    transition: none;
+  }
+}
+
+.carousel .carousel-slide {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 100%;
+  min-width: 100%;
+  flex-direction: column;
+}
+
+.carousel .carousel-slide[aria-hidden='true'] {
+  visibility: hidden;
+}
+
+.carousel .carousel-slide-image {
+  width: 100%;
+}
+
+.carousel .carousel-slide-image picture,
+.carousel .carousel-slide-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.carousel .carousel-slide-content {
+  padding: 16px 24px;
+}
+
+.carousel .carousel-slide-content p {
+  margin: 0 0 8px;
+}
+
+.carousel .carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 80%);
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.carousel .carousel-arrow:hover,
+.carousel .carousel-arrow:focus-visible {
+  background-color: var(--background-color);
+}
+
+.carousel .carousel-arrow-prev {
+  left: 12px;
+}
+
+.carousel .carousel-arrow-next {
+  right: 12px;
+}
+
+.carousel .carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 0 0;
+}
+
+.carousel .carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--dark-color);
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.carousel .carousel-dot.active {
+  background-color: var(--link-color);
+  opacity: 1;
+}
+
+@media (width >= 600px) {
+  .carousel .carousel-slide {
+    flex-direction: row;
+  }
+
+  .carousel .carousel-slide-image,
+  .carousel .carousel-slide-content {
+    width: 50%;
+  }
+
+  .carousel .carousel-slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
